@@ -1,8 +1,8 @@
-﻿namespace Task5
+﻿namespace Task5.App
 {
     internal class Program
     {
-        static void Main( )
+        static void Main()
         {
             Console.WriteLine("Hello Garage!");
         }

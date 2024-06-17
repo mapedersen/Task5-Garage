@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Task5.Entitites
+namespace Task5.App.Entitites
 {
     public interface IVehicle
     {
