@@ -8,8 +8,9 @@ namespace Task5.Entitites
 {
     public interface IVehicle
     {
+        int NumberOfWheels { get; set; }
         string RegistrationNumber { get; set; }
         string Color { get; set; }
-        int NumberOfWheels { get; set; }
+        public void GetDetails();
     }
 }
