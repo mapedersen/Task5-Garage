@@ -1,4 +1,6 @@
-﻿namespace Task5.App.Tools
+﻿using Task5.App.Interfaces;
+
+namespace Task5.App.Tools
 {
     public class Validator : IValidator
     {

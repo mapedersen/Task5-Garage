@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Task5.App.Tools
+namespace Task5.App.Interfaces
 {
     public interface IValidator
     {
