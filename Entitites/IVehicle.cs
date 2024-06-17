@@ -11,6 +11,6 @@ namespace Task5.Entitites
         int NumberOfWheels { get; set; }
         string RegistrationNumber { get; set; }
         string Color { get; set; }
-        public void GetDetails();
+        public string GetDetails();
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Task5.Entitites
 {
-    public class Vehicle : IVehicle
+    public abstract class Vehicle : IVehicle
     {
         public int NumberOfWheels { get; set; }
         public string RegistrationNumber { get; set; }
@@ -16,16 +16,18 @@ namespace Task5.Entitites
         {
             if (numberOfWheels <= 0) throw new ArgumentException("Number of wheels must be positive", nameof(numberOfWheels));
             if (string.IsNullOrEmpty(registrationNUmber)) throw new ArgumentException("Registration number cannot be null or empty", nameof(registrationNUmber));
-            if (string.IsNullOrWhiteSpace(color)) throw new ArgumentException($"{nameof(color)} is null");
+            if (string.IsNullOrWhiteSpace(color)) throw new ArgumentException($"Color cannot be null or whitespace", nameof(color));
 
             NumberOfWheels = numberOfWheels;
             RegistrationNumber = registrationNUmber.ToUpperInvariant();
             Color = color;
         }
 
-        public void GetDetails()
+        public string GetDetails()
         {
-            throw new NotImplementedException();
+            return $"Vehicle has {NumberOfWheels} number of wheels\n" +
+                   $"Vehicle has registration number: {RegistrationNumber}\n" +
+                   $"Vehicle is: {Color}";
         }
     }
 }
