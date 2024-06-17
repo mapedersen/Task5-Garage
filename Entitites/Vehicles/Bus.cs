@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Task5.App.Entitites
+namespace Task5.App.Entitites.Vehicles
 {
     internal class Bus : Vehicle
     {

@@ -1,4 +1,6 @@
-﻿namespace Task5.App.Entitites
+﻿using Task5.App.Tools;
+
+namespace Task5.App.Entitites.Vehicles
 {
     public abstract class Vehicle : IVehicle
     {
@@ -8,9 +10,8 @@
 
         public Vehicle(int numberOfWheels, string registrationNumber, string color)
         {
-            if (numberOfWheels <= 0) throw new ArgumentException("Number of wheels must be positive", nameof(numberOfWheels));
-            if (string.IsNullOrEmpty(registrationNumber)) throw new ArgumentException("Registration number cannot be null or empty", nameof(registrationNumber));
-            if (string.IsNullOrWhiteSpace(color)) throw new ArgumentException($"Color cannot be null or whitespace", nameof(color));
+            var validator = new VehicleValidator();
+            validator.ValidateVehicle(numberOfWheels, registrationNumber, color);
 
             NumberOfWheels = numberOfWheels;
             RegistrationNumber = registrationNumber.ToUpperInvariant();

@@ -1,4 +1,4 @@
-﻿namespace Task5.App.Entitites
+﻿namespace Task5.App.Entitites.Vehicles
 {
     internal class Boat : Vehicle
     {
