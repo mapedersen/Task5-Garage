@@ -1,6 +1,6 @@
 ﻿using Task5.App.Interfaces;
 
-namespace Task5.App.Tools
+namespace Task5.App.Validation
 {
     public class Validator : IValidator
     {

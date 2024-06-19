@@ -1,5 +1,6 @@
 ﻿using Task5.App.Interfaces;
 using Task5.App.Tools;
+using Task5.App.Validation;
 
 namespace Task5.App.Entitites.Vehicles
 {

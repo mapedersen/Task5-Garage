@@ -1,7 +1,7 @@
 ﻿using Task5.App.Entitites.Vehicles;
 using Task5.App.Interfaces;
 
-namespace Task5.App.Tools
+namespace Task5.App.Validation
 {
     public class VehicleValidator : IValidator
     {

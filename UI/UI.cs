@@ -1,16 +1,21 @@
 ﻿using Task5.App.Entitites;
+using Task5.App.Entitites.Vehicles;
 using Task5.App.Interfaces;
+using Task5.App.Tools;
 
 namespace Task5.App.UI
 {
     internal class UI : IUI
     {
-        private readonly GarageHandler<IVehicle> _garageHandler;
+        private readonly GarageHandler<IVehicle> _garageHandler = garageHandler;
+        private readonly VehicleFactory _vehicleFactory;
 
-        public UI(GarageHandler<IVehicle> garageHandler)
+        public UI(GarageHandler<IVehicle> garageHandler, VehicleFactory vehicleFactory)
         {
             _garageHandler = garageHandler;
+            _vehicleFactory = vehicleFactory;
         }
+
         public void DisplayMenu()
         {
             Console.WriteLine($"\nMenu" +
@@ -24,7 +29,7 @@ namespace Task5.App.UI
 
         public void DisplayWelcomeMessage()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Welcome to the Garage Management System");
         }
 
         public int GetGarageCapacity()
@@ -87,7 +92,34 @@ namespace Task5.App.UI
 
         private void AddVehicle()
         {
-            throw new NotImplementedException();
+            Type[] vehicleTypes = VehicleFactory.GetVehicleTypes();
+
+            Console.WriteLine("Select a vehicle type to add:");
+            for (int i = 0; i < vehicleTypes.Length; i++)
+            {
+                Console.WriteLine($"{i + 1}. {vehicleTypes[i].Name}");
+            }
+
+            Console.Write("Enter the number corresponding to the vehicle type");
+            if (int.TryParse(Console.ReadLine(), out int choice) && choice > 0 && choice <= vehicleTypes.Length)
+            {
+                Type selectedType = vehicleTypes[choice - 1];
+                IVehicle vehicle = CreateVehicleInstance(selectedType);
+                if (vehicle != null)
+                {
+                    _garageHandler.AddVehicle(vehicle);
+                    Console.WriteLine($"{selectedType.Name} added to the garage");
+                }
+                else
+                {
+                    Console.WriteLine("Failed to create vehicle");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Invalid choice");
+            }
         }
+
     }
 }
